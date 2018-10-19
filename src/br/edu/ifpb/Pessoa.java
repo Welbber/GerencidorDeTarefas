@@ -24,7 +24,7 @@ public class Pessoa {
 			for(int i = 0; i < nome.length();i++) {
 				char c[] = nome.toCharArray();
 				if(!Character.isLetter(c[i]) && c[i] != ' ') {
-					System.out.println("\n\nDigite um nome invalido");
+					System.out.println("\n\nDigite um nome valido");
 					aux = false;
 					break;
 				}
@@ -42,7 +42,27 @@ public class Pessoa {
 		return email;
 	}
 	public void setEmail(String email) {
-		this.email = email;
+		while(true){
+			String[] aux = email.split("");
+			boolean veri = true;
+			int cont = 2;
+			for(int i = 0; i < aux.length;i++) {
+				if(aux[i].equals("@")) {
+					cont--;
+				}
+				if(aux[i].equals(".")) {
+					cont--;
+				}
+			}
+			if(!(cont == 0)) {
+				System.out.println("\nE-mail invalido\n");
+				System.out.print("Digite E-mail, novamente: ");
+				email = inputString.nextLine();
+			} else {
+				this.email = email;
+				break;
+			}
+		}
 	}
 	
 	public long getMatricula() {
@@ -55,7 +75,7 @@ public class Pessoa {
 	public long getTelefone() {
 		return telefone;
 	}
-	public void setTelefone(long telefone) {
+	public void setTelefone(long telefone){
 		this.telefone = telefone;
 	}
 	

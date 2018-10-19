@@ -22,7 +22,8 @@ public class Sistema {
 			
 			if(usuario.equalsIgnoreCase(test.getUsuario()) && senha.equals(test.getSenha())) {
 				System.out.println("\nLogin com Sucesso!");
-			}else {
+				Menu.menuAluno();
+			} else {
 				System.out.println("\n \n \n \nUsuario ou senha incorreto\n \nDigite 1 para tentar logar novamente\n"
 						+ "Digite 2 para recuperar sua senha ou usuario");
 				int aux = inputInt.nextInt();
@@ -72,5 +73,45 @@ public class Sistema {
 		
 		System.out.print("\nComplemento: ");
 		test.setComplemento(inputString.nextLine());
+	}
+	public void editarPerfil() {
+		// TODO Auto-generated method stub
+		
+	}
+	public void editarProfessor() {
+		// TODO Auto-generated method stub
+		
+	}
+	public void CadastrarDisciplina() {
+		// TODO Auto-generated method stub
+		
+	}
+	public void vizualizarDisciplina() {
+		// TODO Auto-generated method stub
+		
+	}
+	public void editarTarefa() {
+		// TODO Auto-generated method stub
+		
+	}
+	public void cadastrarProfessor() {
+		// TODO Auto-generated method stub
+		
+	}
+	public void vizualizarProfessor() {
+		// TODO Auto-generated method stub
+		
+	}
+	public void editarDisciplina() {
+		// TODO Auto-generated method stub
+		
+	}
+	public void cadastrarTarefa() {
+		// TODO Auto-generated method stub
+		
+	}
+	public void vizualizarTarefa() {
+		// TODO Auto-generated method stub
+		
 	}
 }

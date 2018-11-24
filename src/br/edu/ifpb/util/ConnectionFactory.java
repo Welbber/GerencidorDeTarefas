@@ -3,7 +3,8 @@ package br.edu.ifpb.util;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-
+import java.sql.ResultSet;
+import java.sql.Statement;
 public class ConnectionFactory {
 
 	private static final String DRIVER = "org.postgresql.Driver";
@@ -20,12 +21,12 @@ public class ConnectionFactory {
 	// Estabelecer conexão com o banco de dados
 	public void iniciarConexao() {
 
-		System.out.println("Estabelecendo conexão...");
+		//System.out.println("Estabelecendo conexão...");
 
 		try {
 			Class.forName(DRIVER);
 			this.connection = DriverManager.getConnection(URL, USER, PASS);
-			System.out.println("Conectado!");
+			//System.out.println("Conectado!");
 		} catch (Exception e) {
 			System.out.println("Não foi possivel conectar ao banco de dados: "
 					+ URL);
@@ -52,5 +53,36 @@ public class ConnectionFactory {
 	public Connection getConnection() {
 		return connection;
 	}
-
+	
+	public int executaSQL(String sql){
+		try {
+			Statement stm = connection.createStatement();
+			int res = stm.executeUpdate(sql);
+			connection.close();
+			return res;
+		}catch(Exception e) {
+			e.printStackTrace();
+			return 0;
+		}
+	}	
+	public ResultSet executaBusca(String sql) {
+		try {
+			Statement stm = connection.createStatement();
+			ResultSet rs = stm.executeQuery(sql);
+			connection.close();
+			return rs;
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
+	}
 }
+
+
+
+
+
+
+
+
+

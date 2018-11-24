@@ -5,6 +5,7 @@ public class Tarefa {
 	private String descricao;
 	private String dataEntrega;
 	private String dataCriacao;
+	
 	public String getTitulo() {
 		return titulo;
 	}

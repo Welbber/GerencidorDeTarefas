@@ -5,6 +5,9 @@ import java.util.Scanner;
 
 import br.edu.ifpb.dao.DAOAluno;
 import br.edu.ifpb.entidade.Aluno;
+import br.edu.ifpb.entidade.Disciplina;
+import br.edu.ifpb.entidade.Professor;
+import br.edu.ifpb.entidade.Tarefa;
 import br.edu.ifpb.util.ConnectionFactory;
 
 public class Sistema {
@@ -132,43 +135,159 @@ public class Sistema {
 		aluno.inserir();
 	}
 	public void editarPerfil() {
-		// TODO Auto-generated method stub
+		Aluno aluno = new Aluno();
+		Scanner input = new Scanner(System.in);
+		
+		System.out.print("Nome: ");
+		aluno.setNome(input.nextLine());
+		
+		System.out.print("\nUsuario: ");
+		
+		aluno.setUsuario(input.nextLine());
+		
+		System.out.print("\nSenha: ");
+		aluno.setSenha(input.nextLine());
+		
+		System.out.print("\nMatricula: ");
+		aluno.setMatricula(input.nextLine());
+		
+		System.out.print("\nE-mail: ");
+		aluno.setEmail(input.nextLine());
+		
+		System.out.print("\nTelefone: ");
+		aluno.setTelefone(input.nextLine());
+		
+		System.out.print("\nRua: ");
+		aluno.setRua(input.nextLine());
+		
+		System.out.print("\nNumero: ");
+		aluno.setNumero(input.nextLine());
+		
+		System.out.print("\nComplemento: ");
+		aluno.setComplemento(input.nextLine());
+		System.out.println("\n");
+		
+		aluno.update();
 		
 	}
-	public void editarProfessor() {
-		// TODO Auto-generated method stub
-		
-	}
+	
 	public void CadastrarDisciplina() {
-		// TODO Auto-generated method stub
+		Disciplina d = new Disciplina();
+        Scanner input = new Scanner(System.in);
 		
+		System.out.print("Nome: ");
+		d.setNome(input.nextLine());
+		
+		System.out.print("Nome do Professor: ");
+		d.setProfessor(new Professor());
+		
+		System.out.print("Tipo da Disciplina: ");
+		d.setTipo(input.nextLine());
+		
+		d.cadastrar();
 	}
+	
 	public void vizualizarDisciplina() {
-		// TODO Auto-generated method stub
+		Scanner input = new Scanner(System.in);
+		System.out.print("Nome: ");
+		
+		Disciplina d = new Disciplina();
+		d.setNome(input.nextLine());
+		
+		d.visualizar();
 		
 	}
+	
+	public void editarDisciplina() {
+	
+		Disciplina d = new Disciplina();
+        Scanner input = new Scanner(System.in);
+		
+		System.out.print("Nome: ");
+		d.setNome(input.nextLine());
+		
+		System.out.print("Nome do Professor: ");
+		d.setProfessor(new Professor());
+		
+		System.out.print("Tipo da Disciplina: ");
+		d.setTipo(input.nextLine());
+		
+		d.editar();
+	}
+	
+	
+	public void cadastrarTarefa() {
+		Tarefa t = new Tarefa();
+		Scanner input = new Scanner(System.in);
+		
+		System.out.print("Nome Aluno: ");
+		t.setAluno(new Aluno());
+		
+		System.out.print("Data Criação: ");
+		t.setDataCriacao(input.nextLine());
+		
+		System.out.print("Data Entrega: ");
+		t.setDataEntrega(input.nextLine());
+		
+		System.out.print("Descrição: ");
+		t.setDescricao(input.nextLine());
+		
+		System.out.print("Titulo: ");
+		t.setTitulo(input.nextLine());
+		
+		t.cadastrar();
+		
+	}
+	public void vizualizarTarefa() {
+		Scanner input = new Scanner(System.in);
+		System.out.print("Titulo: ");
+		
+		Tarefa t = new Tarefa();
+		t.setTitulo(input.nextLine());
+		
+		t.visualizar();
+		
+	}
+	
 	public void editarTarefa() {
-		// TODO Auto-generated method stub
+		Tarefa t = new Tarefa();
+		Scanner input = new Scanner(System.in);
 		
+		System.out.print("Nome Aluno: ");
+		t.setAluno(new Aluno());
+		
+		System.out.print("Data Criação: ");
+		t.setDataCriacao(input.nextLine());
+		
+		System.out.print("Data Entrega: ");
+		t.setDataEntrega(input.nextLine());
+		
+		System.out.print("Descrição: ");
+		t.setDescricao(input.nextLine());
+		
+		System.out.print("Titulo: ");
+		t.setTitulo(input.nextLine());
+		
+		t.editar();
+	
 	}
+	
+	
 	public void cadastrarProfessor() {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	
+	public void editarProfessor() {
+		// TODO Auto-generated method stub
+		
+	}
+	
 	public void vizualizarProfessor() {
 		// TODO Auto-generated method stub
 		
 	}
-	public void editarDisciplina() {
-		// TODO Auto-generated method stub
-		
-	}
-	public void cadastrarTarefa() {
-		// TODO Auto-generated method stub
-		
-	}
-	public void vizualizarTarefa() {
-		// TODO Auto-generated method stub
-		
-	}
+	
+	
 }

@@ -1,8 +1,11 @@
 package br.edu.ifpb.dao;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Scanner;
 
+import br.edu.ifpb.entidade.Aluno;
 import br.edu.ifpb.util.ConnectionFactory;
 
 public class DAOAluno {
@@ -120,4 +123,41 @@ public class DAOAluno {
 		}
 		return true;
 	}
+	
+	
+	//metodo responsavel pela atualização dados do usuario
+	public void update(Aluno aluno) {
+			
+		ConnectionFactory in = new ConnectionFactory();
+		
+		String UPDATE = "UPDATE ALUNO SET "
+				+ "NOME="+aluno.getNome() 
+				+" WHERE id_aluno="+aluno.getMatricula();
+		
+		in.executaSQL(UPDATE);
+	
+	}
+	
+	public Aluno visualizarAluno(int id) {
+		ConnectionFactory consulta = new ConnectionFactory();
+		String SQL = "select p.nome, a.frase_de_recuperacao from pessoa p, aluno a where matricula='"+id+"' and a.id_aluno = p.id_pessoa;";
+		ResultSet rs = consulta.executaBusca(SQL);
+		Aluno aluno = new Aluno();
+		try {
+			while(rs.next()) {
+				aluno.setEmail(rs.getString("login"));
+				aluno.setComplemento(rs.getString("complemento"));
+				aluno.setMatricula(rs.getString("matricula"));
+				aluno.setNome(rs.getString("nome"));
+				aluno.setNumero(rs.getString("numero"));
+				aluno.setTelefone(rs.getString("telefone"));
+				break;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return aluno;
+	}
+	
 }

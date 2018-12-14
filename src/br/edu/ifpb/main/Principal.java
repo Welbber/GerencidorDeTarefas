@@ -59,16 +59,16 @@ public class Principal {
 		Sistema system = new Sistema();
 		Scanner input = new Scanner(System.in);
 		while(true) {
-			System.out.println("01 - Editar perfil\t\t"
-					+ "06 - Cadastrar professor\n"
-					+ "02 - Editar professor\t\t"
-					+ "07 - Vizualizar professor\n"
-					+ "03 - Cadastrar disciplina\t"
-					+ "08 - Editar disciplina\n"
+			System.out.println("01 - Editar perfil\t\t"					
+					+ "02 - Cadastrar disciplina\t"
+					+ "03 - Editar disciplina\n"
 					+ "04 - Vizualizar disciplina\t"
-					+ "09 - Cadastrar tarefa\n"
-					+ "05 - Editar tarefa\t\t"
-					+ "10 - Vizualizar tarefa\n");
+					+ "05 - Cadastrar tarefa\n"
+					+ "06 - Editar tarefa\t\t"
+					+ "07 - Vizualizar tarefa\n"
+					+ "08 - Cadastrar professor\n"
+					+ "09 - Editar professor\\n"	
+					+ "10 - Vizualizar professor\n");
 			System.out.print("Digite: ");
 			int opcao = input.nextInt();
 			
@@ -77,11 +77,11 @@ public class Principal {
 				break;
 			}
 			else if(opcao == 2) {
-				system.editarProfessor();
+				system.CadastrarDisciplina();
 				break;
 			}
 			else if (opcao == 3) {
-				system.CadastrarDisciplina();
+				system.editarDisciplina();
 				break;
 			} 
 			else if (opcao == 4) {
@@ -89,27 +89,27 @@ public class Principal {
 				break;
 			}
 			else if (opcao == 5) {
-				system.editarTarefa();
-				break;
-			}
-			else if (opcao == 6) {
-				system.cadastrarProfessor();
-				break;
-			}
-			else if (opcao == 7) {
-				system.vizualizarProfessor();
-				break;
-			}
-			else if (opcao == 8) {
-				system.editarDisciplina();
-				break;
-			}
-			else if (opcao == 9) {
 				system.cadastrarTarefa();
 				break;
 			}
-			else if (opcao == 10) {
+			else if (opcao == 6) {
+				system.editarTarefa();
+				break;
+			}
+			else if (opcao == 7) {
 				system.vizualizarTarefa();
+				break;
+			}
+			else if (opcao == 8) {
+				system.cadastrarProfessor();
+				break;
+			}
+			else if (opcao == 9) {
+				system.editarProfessor();
+				break;
+			}
+			else if (opcao == 10) {
+				system.vizualizarProfessor();
 				break;
 			}
 			else {

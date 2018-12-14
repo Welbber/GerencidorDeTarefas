@@ -81,4 +81,11 @@ public class Aluno extends Pessoa{
 		banco.inserirNoBanco(getNome(), getMatricula(), getEmail(), getTelefone(), getRua(), getNumero(), 
 				getComplemento(), usuario, senha, fraseDeRecuperacao, RespostaDaFrase);
 	}
+	
+	//metodo responsavel por atualizar os dados informados pelo usuario no banco
+	public void update() {
+		DAOAluno banco = new DAOAluno();
+		banco.update(getNome(), getMatricula(), getEmail(), getTelefone(), getRua(), getNumero(), 
+				getComplemento());
+	}
 }
